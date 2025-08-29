@@ -12,13 +12,19 @@ function createNewGrid(size=16){
     let sketchContainer = document.createElement("div");
     sketchContainer.classList.add("container");
 
-    for (let i=0; i < size**2; i++){
-        let square = document.createElement("div");
-        square.classList.add("square");
-        square.addEventListener("mouseover", hoverColour)
-        sketchContainer.append(square);
+    for (let row=0; row < size; row++){
+        let row = document.createElement("div")
+        row.classList.add("row");
+        for (let col=0; col < size; col++){
+            let square = document.createElement("div");
+            square.classList.add("square");
+            square.addEventListener("mouseover", hoverColour)
+            row.appendChild(square);
+        }
+        sketchContainer.appendChild(row);
     }
 
     let body = document.querySelector("body");
     body.append(sketchContainer);
 }
+
