@@ -1,7 +1,3 @@
-function hoverColour(event){
-    event.target.classList.add("activeHover");
-}
-
 function deleteOldGrid(){
     let body = document.querySelector("body");
     let sketchContainer = document.querySelector(".container");
@@ -38,3 +34,21 @@ let sizeInput = document.querySelector("#gridSize")
 sizeInput.addEventListener("change",changeGridSize)
 
 createNewGrid();
+
+let colourChangeBtns = document.querySelectorAll("input[type=checkbox]");
+
+colourChangeBtns.forEach(btn => {
+    btn.addEventListener("click", toggleColour)
+})
+
+function toggleColour(event){
+    //console.dir(event.target);
+    //console.log(event.target.checked);
+    colourChangeBtns.forEach(btn => {
+        if (btn !== event.target) btn.checked = false;
+    })
+}
+
+function hoverColour(event){
+    
+}

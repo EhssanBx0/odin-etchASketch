@@ -33,6 +33,9 @@ body{
     background-color: black;
 }
 
-#gridSize {
-    margin: 30px;
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 15px;
 }
