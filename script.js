@@ -42,13 +42,22 @@ colourChangeBtns.forEach(btn => {
 })
 
 function toggleColour(event){
-    //console.dir(event.target);
-    //console.log(event.target.checked);
     colourChangeBtns.forEach(btn => {
         if (btn !== event.target) btn.checked = false;
     })
 }
 
 function hoverColour(event){
-    
+    let activeBtn;
+    colourChangeBtns.forEach(btn => {
+        if(btn.checked) activeBtn = btn;
+    })
+
+    if (!activeBtn) {
+        event.target.classList.add("activeHover");
+        return
+    }
+
+    if (activeBtn.matches("#shadeCheck")) shadeColour();
+    if (activeBtn.matches("#randomCheck")) randomColour();   
 }
