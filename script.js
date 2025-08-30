@@ -28,3 +28,13 @@ function createNewGrid(size=16){
     body.append(sketchContainer);
 }
 
+function changeGridSize(e){
+    let newGridSize = e.target.value
+    deleteOldGrid();
+    createNewGrid(newGridSize);
+}
+
+let sizeInput = document.querySelector("#gridSize")
+sizeInput.addEventListener("change",changeGridSize)
+
+createNewGrid();

@@ -4,19 +4,35 @@
     box-sizing: border-box;
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .container {
     outline: 1px solid black;
     display: flex;
-    flex-wrap: wrap;
-    width: 400px;
+    flex-direction: column;
+    width: 600px;
+    height: 600px;
+}
+
+.row{
+    display: flex;
+    flex: 1;
 }
 
 .square {
     border: 1px solid black;
-    height: 25px;
-    width: 25px;
+    flex: 1;
 }
 
 .activeHover{
     background-color: black;
+}
+
+#gridSize {
+    margin: 30px;
 }
