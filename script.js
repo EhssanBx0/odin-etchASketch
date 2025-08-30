@@ -41,10 +41,28 @@ colourChangeBtns.forEach(btn => {
     btn.addEventListener("click", toggleColour)
 })
 
+let shadeCounter = 0
+
 function toggleColour(event){
     colourChangeBtns.forEach(btn => {
-        if (btn !== event.target) btn.checked = false;
+        if (btn !== event.target) {
+            btn.checked = false;
+            shadeCounter = 0
+        }
     })
+}
+
+function randomColour(square){
+    let red = Math.floor(Math.random()*257);
+    let green = Math.floor(Math.random()*257);
+    let blue = Math.floor(Math.random()*257);
+
+    square.style.backgroundColor = `rgb(${red},${green},${blue})`;
+}
+
+function shadeColour(square){
+    square.style.backgroundColor = `hsla(0, 0%, 0%, ${0.1+shadeCounter/10})`;
+    shadeCounter++
 }
 
 function hoverColour(event){
@@ -58,6 +76,6 @@ function hoverColour(event){
         return
     }
 
-    if (activeBtn.matches("#shadeCheck")) shadeColour();
-    if (activeBtn.matches("#randomCheck")) randomColour();   
+    if (activeBtn.matches("#shadeCheck")) shadeColour(event.target);
+    if (activeBtn.matches("#randomCheck")) randomColour(event.target);   
 }
